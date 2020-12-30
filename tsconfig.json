@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "pretty": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "allowJs": false,
+    "lib": [ "es6", "dom" ],
+    "target": "es5",
+    "downlevelIteration": true,
+    "newLine": "LF",
+    "baseUrl": "./",
+    "jsx": "react",
+    "strict": true,
+    "importHelpers": true
+  },
+  "include": [
+    "src/**/*", "setupTests.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

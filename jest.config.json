@@ -1,0 +1,26 @@
+{
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testRegex": "src/.*\\.spec\\.tsx?$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js"
+  ],
+  "coverageReporters": [
+    "text",
+    "html"
+  ],
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!**/node_modules/**",
+    "!src/i18n/**",
+    "!src/index.tsx",
+  ],
+  "reporters": [
+    "default",
+    "jest-junit"
+  ],
+  "setupFiles": ["./setupTests.ts"]
+}
