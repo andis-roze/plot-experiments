@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useFormContext } from "react-hook-form";
 import { Sigma } from "../sigma/Sigma";
+import { Fraction } from "../fraction/Fraction";
 import { Form, FieldTypes } from "../form/Form";
 import { Input } from "../form/Input";
 import { FunctionPlot } from "../function-plot/FunctionPlot";
@@ -45,20 +46,21 @@ function ParameterFields(props: ParameterFormProps) {
             </label>
             <label>
                 <strong>&nbsp;&nbsp;&nbsp;a:&nbsp;</strong>
-                <Input type={FieldTypes.NUMBER} name="a" step={0.01} />
+                <Input type={FieldTypes.NUMBER} name="a" step={0.01} min={0.01} max={0.99} />
             </label>
             <label>
                 <strong>&nbsp;&nbsp;&nbsp;b:&nbsp;</strong>
-                <Input type={FieldTypes.NUMBER} name="b" step={0.1} />
+                <Input type={FieldTypes.NUMBER} name="b" step={2} min={1} />
             </label>
         </>
     );
 }
 
 export const WeierstrassFunction = () => {
-    const [parameters, setParameters] = React.useState<Parameters>({ n: 10, a: 0.2, b: 7 });
+    const [parameters, setParameters] = React.useState<Parameters>({ n: 1, a: 0.2, b: 29 });
     const { n, a, b } = parameters;
     const [fn, setFn] = React.useState<string>(buildSeries(n, a, b));
+    const undifferentiable = a * b > 1 + 3 * Math.PI / 2;
 
     React.useEffect(
         () => setFn(buildSeries(n, a, b)),
@@ -68,16 +70,27 @@ export const WeierstrassFunction = () => {
     return (
         <>
             <div className="top-row">
-                <Sigma
-                    start="n = 0"
-                    end="&infin;"
+                <a 
+                    href="https://en.wikipedia.org/wiki/Weierstrass_function"
+                    target="_blank"
+                    style={{ textDecoration: "none" }}
                 >
-                    a<sup>n</sup> cos(b<sup>n</sup> &pi; x)
-                </Sigma>
+                    <Sigma
+                        start="n = 0"
+                        end="&infin;"
+                    >
+                        a<sup>n</sup> cos(b<sup>n</sup> &pi; x)
+                    </Sigma>
+                </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <Form defaultValues={{ n, a, b }}>
                     <ParameterFields parameters={{ n, a, b }} onUpdate={setParameters} />
                 </Form>
+            </div>
+            <div className="top-row" style={{ paddingTop: 0 }}>
+                ab&nbsp;&gt;&nbsp;1&nbsp;+&nbsp;<Fraction numerator="3" denominator="2" />&pi;&nbsp;&equiv;&nbsp;{
+                    undifferentiable ? "TRUE" : "FALSE"
+                }
             </div>
             <FunctionPlot
                 className="content"
