@@ -1,0 +1,26 @@
+.sigma {
+    font-size: 2.5em;
+    display: inline-block;
+    line-height: .7em;
+    vertical-align: middle;
+}
+
+.sigma:before {
+    font-size: 12px;
+    display: block;
+    left: 0;
+    top: 0;
+    content: attr(data-end);
+    width: 22px;
+    text-align: center;
+}
+
+.sigma:after {
+    font-size: 12px;
+    display: block;
+    left: 0;
+    bottom: 0;
+    content: attr(data-start);
+    width: 27px;
+    text-align: center;
+}
