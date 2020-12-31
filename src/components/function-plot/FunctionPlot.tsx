@@ -17,7 +17,7 @@ export const FunctionPlot: React.FunctionComponent<FunctionPlotProps> = (props) 
             const bodyRect = document.body.getBoundingClientRect();
             const { width, height } = plotEl.current.getBoundingClientRect();
             const dim = Math.min(width, height);
-            const ratio = bodyRect.width / dim;
+            const ratio = bodyRect.width / width;
 
             funtionPlot({
                 // @ts-ignore

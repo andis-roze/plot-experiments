@@ -68,15 +68,17 @@ export const WeierstrassFunction = () => {
     return (
         <>
             <div className="top-row">
-                <Sigma
-                    start="n = 0"
-                    end="&infin;"
-                >
-                    a<sup>n</sup> cos(b<sup>n</sup> &pi; x)
-                </Sigma>
-                <Form defaultValues={{ n, a, b }}>
-                    <ParameterFields parameters={{ n, a, b }} onUpdate={setParameters} />
-                </Form>
+                <div>
+                    <Sigma
+                        start="n = 0"
+                        end="&infin;"
+                    >
+                        a<sup>n</sup> cos(b<sup>n</sup> &pi; x)
+                    </Sigma>
+                    <Form defaultValues={{ n, a, b }}>
+                        <ParameterFields parameters={{ n, a, b }} onUpdate={setParameters} />
+                    </Form>
+                </div>
             </div>
             <FunctionPlot
                 className="content"
