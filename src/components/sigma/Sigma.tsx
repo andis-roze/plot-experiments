@@ -8,7 +8,7 @@ export interface SigmaProps {
 
 export const Sigma: React.FunctionComponent<SigmaProps> = props => {
     return (
-        <>
+        <span>
             <span
                 className={styles.default.sigma}
                 data-start={props.start}
@@ -17,6 +17,6 @@ export const Sigma: React.FunctionComponent<SigmaProps> = props => {
                 &Sigma;
             </span>
             {props.children}
-        </>
+        </span>
     );
 };
