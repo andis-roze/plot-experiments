@@ -43,11 +43,14 @@ const createConfig: configFactory = env => {
                 {
                     test: /\.(scss)$/,
                     use: [
-                        { loader: "style-loader" }, 
+                        { loader: "style-loader" },
                         {
                             loader: "css-loader",
                             options: {
-                                modules: true,
+                                esModule: true,
+                                modules: {
+                                    exportLocalsConvention: "camelCase",
+                                },
                                 importLoaders: 2,
                             },
                         }, 
