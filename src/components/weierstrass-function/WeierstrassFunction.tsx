@@ -70,7 +70,7 @@ export const WeierstrassFunction = () => {
     return (
         <>
             <div className="top-row">
-                <a 
+                <a
                     href="https://en.wikipedia.org/wiki/Weierstrass_function"
                     target="_blank"
                     style={{ textDecoration: "none" }}

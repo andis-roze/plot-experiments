@@ -9,9 +9,9 @@
   },
   "private": true,
   "scripts": {
-    "dist:dev": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --env.NODE_ENV=dev --config ./webpack.config.ts",
-    "dist:test": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --env.NODE_ENV=test --config ./webpack.config.ts",
-    "dist:prod": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --env.NODE_ENV=prod --config ./webpack.config.ts",
+    "dist:dev": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --envNODE_ENV=dev --config ./webpack.config.ts",
+    "dist:test": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --env NODE_ENV=test --config ./webpack.config.ts",
+    "dist:prod": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --env NODE_ENV=prod --config ./webpack.config.ts",
     "tslint": "tslint 'src/**/*.ts' --format stylish",
     "watch": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --watch",
     "start": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack serve --env NODE_ENV=dev --watch --progress --host 0.0.0.0",
