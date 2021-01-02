@@ -1,0 +1,9 @@
+dist/
+docs/
+coverage/
+test-results/
+.idea/
+node_modules/
+dist/bundle.js
+npm-debug.log
+yarn-error.log
