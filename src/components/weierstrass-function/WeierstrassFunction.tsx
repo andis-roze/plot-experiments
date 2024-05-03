@@ -6,20 +6,20 @@ import { Form, FieldTypes } from "../form/Form";
 import { Input } from "../form/Input";
 import { FunctionPlot } from "../function-plot/FunctionPlot";
 
-function buildSeries(n: number, a: number, b: number): string {
-    const members = [];
-
-    for (let i = 0; i <= n; i++) {
-        members.push(`${a ** i}*cos(${(b ** i) * Math.PI}*x)`);
-    }
-
-    return members.join("+");
-}
-
 interface Parameters {
     n: number;
     a: number;
     b: number;
+}
+
+function buildSeries(params: Parameters): string {
+    const members = [];
+
+    for (let i = 0; i <= params.n; i++) {
+        members.push(`${params.a ** i}*cos(${(params.b ** i) * Math.PI}*x)`);
+    }
+
+    return members.join("+");
 }
 
 interface ParameterFormProps {
@@ -59,11 +59,11 @@ function ParameterFields(props: ParameterFormProps) {
 export const WeierstrassFunction = () => {
     const [parameters, setParameters] = React.useState<Parameters>({ n: 1, a: 0.2, b: 29 });
     const { n, a, b } = parameters;
-    const [fn, setFn] = React.useState<string>(buildSeries(n, a, b));
+    const [fn, setFn] = React.useState<string>(buildSeries({ n, a, b }));
     const undifferentiable = a * b > 1 + 3 * Math.PI / 2;
 
     React.useEffect(
-        () => setFn(buildSeries(n, a, b)),
+        () => setFn(buildSeries({ n, a, b })),
         [n, a, b]
     );
 
